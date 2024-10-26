@@ -4,6 +4,7 @@ import { addRequestTag, deleteRequestTag } from 'providers/ReduxStore/slices/col
 import { useDispatch } from 'react-redux';
 import TagList from './TagList/TagList';
 
+
 const Tags = ({ item, collection }) => {
   const tags = item.draft ? get(item, 'draft.request.tags') : get(item, 'request.tags');
 
@@ -35,7 +36,9 @@ const Tags = ({ item, collection }) => {
 
   return (
     <div>
-      <TagList tags={tags} onTagRemove={handleRemove} onTagAdd={handleAdd} />
+      <div className="mt-6">
+        <TagList tags={tags} onTagRemove={handleRemove} onTagAdd={handleAdd} suggestions={[]} />
+      </div>
     </div>
   );
 };
